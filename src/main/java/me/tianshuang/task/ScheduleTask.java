@@ -16,10 +16,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * Created by Poison on 12/04/2017.
@@ -36,10 +35,8 @@ public class ScheduleTask {
 
     private OkHttpClient okHttpClient = new OkHttpClient();
 
-    private Set<Integer> lastIdSet = new HashSet<>();
-
-    @Scheduled(cron = "0 0 9,18 * * *")
-    void pullNewsFromReadhub() {
+    @Scheduled(cron = "0 0 9 * * *")
+    void pullNewsFromReadhubAndPushToDingtalk() {
         Request urlRequest = new Request.Builder()
                 .url(READHUB_ME_URL)
                 .build();
@@ -48,11 +45,8 @@ public class ScheduleTask {
             List<Link> linkList = new ArrayList<>(12);
 
             for (TopicDO topicDO : pageVO.getData()) {
-                if (lastIdSet.contains(topicDO.getId())) {
-                    lastIdSet.remove(topicDO.getId());
-                } else {
+                if (topicDO.getCreatedAt().isAfter(LocalDateTime.now().minusDays(1))) {
                     linkList.add(new Link(topicDO.getTitle(), topicDO.getNewsArray()[0].getUrl()));
-                    lastIdSet.add(topicDO.getId());
                 }
             }
 
