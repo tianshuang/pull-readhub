@@ -4,7 +4,7 @@
 无码科技近日发布了 [Readhub](https://readhub.me/)，由于不想每天手动登录站点去看，所以随手写了一个小工具，每天早上九点通过钉钉机器人推送到群里。
 
 效果如图：
-![dingding](https://storage.tianshuang.me/pull-readhubme/dingding.png)
+![dingding](https://storage.tianshuang.me/pull-readhubme/dingtalk.jpg)
 
 使用方法：
 
