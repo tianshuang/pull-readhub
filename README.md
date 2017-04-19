@@ -6,6 +6,9 @@
 效果如图：
 ![dingding](https://storage.tianshuang.me/pull-readhubme/dingtalk.jpg)
 
+环境要求：
+JDK8 +
+
 使用方法：
 
 下载 [pull-readhubme-0.0.3-SNAPSHOT.jar](https://storage.tianshuang.me/pull-readhubme/pull-readhubme-0.0.3-SNAPSHOT.jar)
