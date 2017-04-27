@@ -13,6 +13,8 @@ public class TopicDO {
 
     private int id;
 
+    private int order;
+
     private String title;
 
     private NewsDO[] newsArray;

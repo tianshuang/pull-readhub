@@ -28,7 +28,9 @@ public class ScheduleTask {
 
     private static final Logger logger = LoggerFactory.getLogger(ScheduleTask.class);
 
-    private static final String READHUB_ME_URL = "https://api.readhub.me/topic?pageSize=12";
+    private static final String READHUB_ME_URL = "https://api.readhub.me/topic?pageSize=20";
+
+    private static Integer lastCursor;
 
     @Value("${dingtalk.robot.url}")
     private String dingtalkRobotUrl;
@@ -37,22 +39,27 @@ public class ScheduleTask {
 
     @Scheduled(cron = "0 0 9 * * *")
     void pullNewsFromReadhubAndPushToDingtalk() {
+        List<Link> linkList = new ArrayList<>(80);
+        LocalDateTime yesterday = LocalDateTime.now().minusHours(8).minusDays(1);
+        for (int i = 0; i < 4; i++) {
+            pullNewsFromReadhub(linkList, yesterday);
+        }
+        sendNewsToDingTalk(linkList);
+    }
+
+    private void pullNewsFromReadhub(List<Link> linkList, LocalDateTime yesterday) {
         Request urlRequest = new Request.Builder()
-                .url(READHUB_ME_URL)
+                .url(READHUB_ME_URL + (lastCursor != null ? "&lastCursor=" + lastCursor : ""))
                 .build();
         try (Response response = okHttpClient.newCall(urlRequest).execute()) {
             PageVO pageVO = JSON.parseObject(response.body().string(), PageVO.class);
-            List<Link> linkList = new ArrayList<>(12);
-
-            LocalDateTime yesterday = LocalDateTime.now().minusDays(1);
             for (TopicDO topicDO : pageVO.getData()) {
                 if (topicDO.getCreatedAt().isAfter(yesterday)) {
                     linkList.add(new Link(topicDO.getTitle(), topicDO.getNewsArray()[0].getUrl()));
                 }
             }
 
-            sendNewsToDingTalk(linkList);
-
+            lastCursor = pageVO.getData().get(19).getOrder();
         } catch (IOException e) {
             logger.error("Pull exception: " + e.getMessage());
         }
