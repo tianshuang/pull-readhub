@@ -11,7 +11,7 @@ JDK8 +
 
 使用方法：
 
-下载 [pull-readhubme-0.0.4-SNAPSHOT.jar](https://storage.tianshuang.me/pull-readhubme/pull-readhubme-0.0.4-SNAPSHOT.jar)
+下载 [pull-readhubme-0.0.5-SNAPSHOT.jar](https://storage.tianshuang.me/pull-readhubme/pull-readhubme-0.0.5-SNAPSHOT.jar)
 
 下载 [application.properties](https://storage.tianshuang.me/pull-readhubme/application.properties)
 
