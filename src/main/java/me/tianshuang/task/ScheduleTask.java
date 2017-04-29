@@ -44,6 +44,7 @@ public class ScheduleTask {
         for (int i = 0; i < 4; i++) {
             pullNewsFromReadhub(linkList, yesterday);
         }
+        lastCursor = null;
         sendNewsToDingTalk(linkList);
     }
 
