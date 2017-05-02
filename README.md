@@ -18,8 +18,8 @@ JDK8 +
 修改配置文件中的日志路径及钉钉机器人 URL 并将以上两个文件放置于同一目录下。
 
 ```Bash
-chmod u+x pull-readhubme-0.0.4-SNAPSHOT.jar
-./pull-readhubme-0.0.3-SNAPSHOT.jar &
+chmod u+x pull-readhubme-0.0.5-SNAPSHOT.jar
+./pull-readhubme-0.0.5-SNAPSHOT.jar &
 ```
 
 如有建议，敬请指出。
