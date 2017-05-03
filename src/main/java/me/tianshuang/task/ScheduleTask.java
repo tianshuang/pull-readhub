@@ -73,7 +73,7 @@ public class ScheduleTask {
         }
 
         MarkdownDO markdownDO = new MarkdownDO();
-        markdownDO.setTitle("Readhub 最新消息");
+        markdownDO.setTitle("Readhub 热门话题");
         try {
             markdownDO.setText(new UnorderedList<>(linkList).serialize());
         } catch (MarkdownSerializationException e) {
