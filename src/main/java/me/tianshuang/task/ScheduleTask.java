@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class ScheduleTask {
     @Scheduled(cron = "0 0 9 * * *")
     void pullNewsFromReadhubAndPushToDingtalk() {
         List<Link> linkList = new ArrayList<>(80);
-        LocalDateTime yesterday = LocalDateTime.now().minusHours(8).minusDays(1);
+        LocalDateTime yesterday = LocalDateTime.now(ZoneId.of("GMT")).minusDays(1);
         for (int i = 0; i < 4; i++) {
             pullNewsFromReadhub(linkList, yesterday);
         }
