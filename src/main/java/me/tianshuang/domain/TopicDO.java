@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 public class TopicDO {
 
-    private int id;
+    private String id;
 
     private int order;
 
