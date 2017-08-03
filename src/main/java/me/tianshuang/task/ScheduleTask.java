@@ -41,7 +41,7 @@ public class ScheduleTask {
     @Scheduled(cron = "0 0 9 * * *")
     void pullNewsFromReadhubAndPushToDingtalk() {
         List<Link> linkList = new ArrayList<>(80);
-        LocalDateTime yesterday = LocalDateTime.now(ZoneId.of("GMT")).minusDays(1);
+        LocalDateTime yesterday = LocalDateTime.now(ZoneId.of("UTC")).minusDays(1);
         for (int i = 0; i < 4; i++) {
             pullNewsFromReadhub(linkList, yesterday);
         }
