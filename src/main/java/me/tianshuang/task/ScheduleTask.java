@@ -55,7 +55,7 @@ public class ScheduleTask {
             PageVO pageVO = JSON.parseObject(response.body().string(), PageVO.class);
             for (TopicDO topicDO : pageVO.getData()) {
                 if (topicDO.getCreatedAt().isAfter(yesterday)) {
-                    linkList.add(new Link(topicDO.getTitle(), topicDO.getNewsArray()[0].getUrl()));
+                    linkList.add(new Link(topicDO.getTitle().trim(), topicDO.getNewsArray()[0].getUrl().trim()));
                 }
             }
 
