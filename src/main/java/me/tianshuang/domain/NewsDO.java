@@ -11,4 +11,8 @@ public class NewsDO {
 
     private String url;
 
+    public String getUrl() {
+        return url == null ? null : url.trim();
+    }
+
 }

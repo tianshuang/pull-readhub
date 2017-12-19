@@ -11,15 +11,15 @@ JDK8 +
 
 使用方法：
 
-下载 [pull-readhubme-0.1.1-SNAPSHOT.jar](https://storage.tianshuang.me/pull-readhubme/pull-readhubme-0.1.1-SNAPSHOT.jar)
+下载 [pull-readhubme-0.1.2-SNAPSHOT.jar](https://storage.tianshuang.me/pull-readhubme/pull-readhubme-0.1.2-SNAPSHOT.jar)
 
 下载 [pull-readhubme.properties](https://storage.tianshuang.me/pull-readhubme/pull-readhubme.properties)
 
 修改配置文件中的日志路径及钉钉机器人 URL 并将以上两个文件放置于同一目录下。
 
 ```Bash
-chmod u+x pull-readhubme-0.1.1-SNAPSHOT.jar
-./pull-readhubme-0.1.1-SNAPSHOT.jar &
+chmod u+x pull-readhubme-0.1.2-SNAPSHOT.jar
+./pull-readhubme-0.1.2-SNAPSHOT.jar &
 ```
 
 如有建议，敬请指出。

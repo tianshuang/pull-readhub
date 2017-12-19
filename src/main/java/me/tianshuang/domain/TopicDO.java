@@ -22,4 +22,8 @@ public class TopicDO {
     @JSONField(format = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime createdAt;
 
+    public String getTitle() {
+        return title == null ? null : title.trim();
+    }
+
 }
