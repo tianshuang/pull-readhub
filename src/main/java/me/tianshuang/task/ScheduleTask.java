@@ -36,7 +36,7 @@ public class ScheduleTask {
 
     private Integer lastCursor;
 
-    @Scheduled(cron = "0 0 9 * * *")
+    @Scheduled(cron = "${cron}")
     void pullNewsFromReadhubAndPushToDingtalk() {
         List<Link> linkList = new ArrayList<>(80);
         LocalDateTime yesterday = LocalDateTime.now(ZoneId.of("UTC")).minusDays(1);
@@ -55,21 +55,13 @@ public class ScheduleTask {
             PageVO pageVO = JSON.parseObject(response.body().string(), PageVO.class);
             for (TopicDO topicDO : pageVO.getData()) {
                 if (topicDO.getCreatedAt().isAfter(yesterday)) {
-                    linkList.add(new Link(topicDO.getTitle(), getNewsUrl(topicDO)));
+                    linkList.add(new Link(topicDO.getTitle(), "https://readhub.me/topic/" + topicDO.getId()));
                 }
             }
 
             lastCursor = pageVO.getData().get(pageVO.getData().size() - 1).getOrder();
         } catch (IOException e) {
             logger.error("Pull exception: " + e.getMessage());
-        }
-    }
-
-    private String getNewsUrl(TopicDO topicDO) {
-        if (topicDO.getNewsArray().length == 0) {
-            return "https://readhub.me/topic/" + topicDO.getId();
-        } else {
-            return topicDO.getNewsArray()[0].getUrl();
         }
     }
 
