@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>me.tianshuang</groupId>
-	<artifactId>pull-readhubme</artifactId>
-	<version>0.1.3-SNAPSHOT</version>
+	<artifactId>pull-readhub</artifactId>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>pull-readhubme</name>
-	<description>pull readhub.me</description>
+	<name>pull-readhub</name>
+	<description>pull readhub.cn</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@TestPropertySource(locations = "classpath:pull-readhubme.properties")
+@TestPropertySource(locations = "classpath:pull-readhub.properties")
 public class ScheduleTaskTest {
 
     @Autowired

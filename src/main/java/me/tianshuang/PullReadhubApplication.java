@@ -6,11 +6,11 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class PullReadhubmeApplication {
+public class PullReadhubApplication {
 
     public static void main(String[] args) {
-        new SpringApplicationBuilder(PullReadhubmeApplication.class)
-                .properties("spring.config.name:pull-readhubme")
+        new SpringApplicationBuilder(PullReadhubApplication.class)
+                .properties("spring.config.name:pull-readhub")
                 .build()
                 .run(args);
     }

@@ -49,13 +49,13 @@ public class ScheduleTask {
 
     private void pullNewsFromReadhubSince(List<Link> linkList, LocalDateTime yesterday) {
         Request urlRequest = new Request.Builder()
-                .url("https://api.readhub.me/topic?pageSize=20" + (lastCursor != null ? "&lastCursor=" + lastCursor : ""))
+                .url("https://api.readhub.cn/topic?pageSize=20" + (lastCursor != null ? "&lastCursor=" + lastCursor : ""))
                 .build();
         try (Response response = okHttpClient.newCall(urlRequest).execute()) {
             PageVO pageVO = JSON.parseObject(response.body().string(), PageVO.class);
             for (TopicDO topicDO : pageVO.getData()) {
                 if (topicDO.getCreatedAt().isAfter(yesterday)) {
-                    linkList.add(new Link(topicDO.getTitle(), "https://readhub.me/topic/" + topicDO.getId()));
+                    linkList.add(new Link(topicDO.getTitle(), "https://readhub.cn/topic/" + topicDO.getId()));
                 }
             }
 
