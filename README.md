@@ -11,7 +11,7 @@ JDK8 +
 
 使用方法：
 
-下载 [pull-readhub-1.0.0-SNAPSHOT.jar](https://storage.tianshuang.me/pull-readhub/pull-readhub-1.0.0-SNAPSHOT.jar)
+下载 [pull-readhub-1.0.0.jar](https://storage.tianshuang.me/pull-readhub/pull-readhub-1.0.0.jar)
 
 下载 [pull-readhub.properties](https://storage.tianshuang.me/pull-readhub/pull-readhub.properties)
 
