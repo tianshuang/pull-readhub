@@ -1,6 +1,5 @@
 package me.tianshuang.domain;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -19,7 +18,6 @@ public class TopicDO {
 
     private NewsDO[] newsArray;
 
-    @JSONField(format = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private LocalDateTime createdAt;
 
     public String getTitle() {

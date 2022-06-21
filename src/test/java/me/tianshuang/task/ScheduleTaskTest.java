@@ -1,16 +1,16 @@
 package me.tianshuang.task;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import net.steppschuh.markdowngenerator.MarkdownSerializationException;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit4.SpringRunner;
+
+import java.io.IOException;
 
 /**
  * Created by Poison on 12/04/2017.
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest
 @TestPropertySource(locations = "classpath:pull-readhub.properties")
 public class ScheduleTaskTest {
@@ -19,7 +19,7 @@ public class ScheduleTaskTest {
     private ScheduleTask scheduleTask;
 
     @Test
-    public void pullNewsFromReadhubTest() {
+    public void pullNewsFromReadhubTest() throws MarkdownSerializationException, IOException {
         scheduleTask.pullNewsFromReadhubAndPushToDingtalk();
     }
 
